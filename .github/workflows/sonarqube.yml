@@ -21,6 +21,6 @@ jobs:
     - name: Build and Analyze
       run: |
         dotnet build
-        dotnet sonarscanner begin /d:sonar.login=${{ secrets.SONARQUBE_TOKEN }} /d:sonar.host.url=http://localhost:9000 /d:sonar.cs.opencover.reportsPaths=**/coverage.opencover.xml
+        dotnet sonarscanner begin /d:sonar.login=${{ secrets.SONAR_TOKEN }} /d:sonar.host.url=${{ secrets.SONAR_HOST_URL }}
         dotnet test
         dotnet sonarscanner end /d:sonar.login=${{ secrets.SONARQUBE_TOKEN }}
